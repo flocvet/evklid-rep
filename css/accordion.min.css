@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/*!
+ * Accordion v3.1.1
+ * Simple accordion created in pure Javascript.
+ * https://github.com/michu2k/Accordion
+ *
+ * Copyright (c) Michał Strumpf
+ * Published under MIT License
+ */
+
+.ac .ac-header {
+  margin-bottom: 0;
+}
+
+.ac .ac-trigger {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #111;
+  text-align: left;
+  width: 100%;
+  padding: 40px 30px 40px 0;
+  display: block;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: color .25s ease;
+  transition: color .25s ease;
+  position: relative;
+  text-decoration: none;
+  margin: 0;
+  border: 0
+}
+
+.ac .ac-trigger::after {
+  content: '';
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/faq-1.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  transition: color 1.5s ease-in-out, background-image 1.5s ease-in-out;
+  transition: 0.8s;
+  cursor: pointer;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+.ac .ac-trigger:focus::after,
+.ac .ac-trigger:hover::after {
+  background-image: url(../img/faq-2.svg);
+}
+
+.ac .ac-trigger .ac-header:focus {
+  color: #FF9900;
+  border-top-color: #FF9900;
+  border-bottom-color: #FF9900;
+}
+
+.ac .ac-panel {
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.ac .ac-panel .ac-text {
+  font: 15px/24px Arial, sans-serif;
+  color: #111;
+  padding: 10px;
+  margin: 0;
+}
+
+.ac .ac-panel {
+  padding: 0;
+  padding-right: 100px;
+}
+
+.ac.js-enabled .ac-panel {
+  visibility: hidden;
+}
+
+.ac.is-active .ac-panel {
+  visibility: visible;
+}
+
+.ac.is-active .ac-panel p {
+  padding: 0;
+  padding-bottom: 30px;
+  margin: 0;
+}
+
+.ac.is-active>.ac-header .ac-trigger {
+  color: #111;
+  padding: 40px 30px 40px 0;
+}
+
+.ac.is-active>.ac-header:not(:last-child) {
+  border-bottom: none;
+}
+
+.ac.is-active>.ac-panel:last-child {
+  border-bottom: 1px solid var(--gray-color-one);
+}
+
+.ac.is-active>.ac-header .ac-trigger::after {
+  content: '';
+  text-align: center;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/faq-1.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  transition: color 1.5s ease-in-out, background-image 1.5s ease-in-out;
+  cursor: pointer;
+  transform: rotate(45deg);
+  transition: 0.8s;
+  right: 10px;
+  top: 30px;
+}
